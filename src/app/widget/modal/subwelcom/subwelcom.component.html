@@ -1,0 +1,20 @@
+<form nz-form [formGroup]="addEditForm">
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="tenphongban">tenphongban</nz-form-label>
+        <nz-form-control [nzSm]="18" [nzXs]="24" [nzErrorTip]="combineTpl">
+          <input nz-input formControlName="tenphongban" id="tenphongban" placeholder="tenphongban" />
+        </nz-form-control>
+      </nz-form-item>
+    
+      <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="fatherId">Số điện thoại</nz-form-label>
+        <nz-form-control [nzSm]="18" [nzXs]="24" [nzErrorTip]="combineTpl">
+          <input nz-input formControlName="fatherId" id="fatherId" placeholder="Số điện thoại" />
+        </nz-form-control>
+      </nz-form-item>
+</form>
+
+<ng-template #combineTpl let-control>
+    <ng-container *ngIf="control.hasError('message')">{{ control.errors.message }}</ng-container>
+    <ng-container *ngIf="control.hasError('required')">Phần bắt buộc</ng-container>
+  </ng-template>

@@ -1,0 +1,29 @@
+<nz-table #columnTable [nzData]="listOfData" [nzScroll]="{ x: '1100px' }">
+    <thead>
+      <tr>
+
+        <th>ID phong Ban</th>
+        <th>Ten Phong Ban</th>
+        <th>Trang Thai</th>
+        <th>Father ID</th>
+
+        <th nzRight>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of columnTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.tenphongban }}</td>
+        <td>{{ data.state }}</td>
+        <td>{{ data.fatherId }}</td>
+        <td nzRight>
+            <span  class="operate-text">
+                <button nz-button nzType="primary" nzGhost (click)="edit(data.id,data.tenphongban,data.fatherId)">Cập nhật</button>
+            </span>
+            <span  class="operate-text" >
+                <button nz-button nzType="primary" nzGhost (click)="del(data.id)">Xóa</button>
+            </span>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
